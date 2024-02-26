@@ -1,5 +1,7 @@
+import AppContextProvider from "@/components/AppContext";
+import "@/styles/globals.css";
+import "@/styles/markdown.css";
 import type { Metadata } from "next";
-import "./globals.css";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -8,12 +10,14 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) {
+}) {
   return (
     <html lang="en">
-      <body className='bg-green-500 p-10'>{children}</body>
+      <body>
+        <AppContextProvider>{children}</AppContextProvider>
+      </body>
     </html>
   );
 }

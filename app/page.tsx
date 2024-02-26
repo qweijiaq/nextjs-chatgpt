@@ -1,3 +1,17 @@
+"use client";
+
+import Navigation from "@/components/home/Navigation";
+import Main from "@/components/home/Main";
+import { useAppContext } from "@/components/AppContext";
+
 export default function Home() {
-  return <main className="bg-yellow-500 p-10">Hello Next.js</main>;
+  const {
+    state: { themeMode },
+  } = useAppContext();
+  return (
+    <div className={`${themeMode} h-full flex`}>
+      <Navigation />
+      <Main />
+    </div>
+  );
 }
